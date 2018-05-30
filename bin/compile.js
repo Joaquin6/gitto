@@ -2,9 +2,9 @@ const Promise = require('bluebird');
 const { exec } = require('pkg');
 
 const cliCommands = [
-  'inexa_cloud_upload',
-  'inexa_cloud_download',
-  'inexa_cloud_create_access_token_file',
+  'gitto_cloud_upload',
+  'gitto_cloud_download',
+  'gitto_cloud_create_access_token_file',
 ];
 
 function generateArgs(command, platform) {
