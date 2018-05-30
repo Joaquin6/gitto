@@ -1,1 +1,11 @@
+data
+out
+coverage
 node_modules
+.nyc_output
+
+npm-debug.log
+yarn-error.log
+logs
+*.sw?
+lib

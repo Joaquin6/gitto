@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "\"git init\" on steroids",
   "main": "index.js",
+  "preferGlobal": true,
   "bin": {
     "gitto": "./index.js"
   },
