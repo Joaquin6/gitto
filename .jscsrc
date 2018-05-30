@@ -1,16 +1,12 @@
 {
-	// Project Specific
 	"excludeFiles": [
 		"node_modules/**",
-		"coverage/**"
+		"coverage/**",
+		".**"
 	],
-
-	// Added for JSX Support
 	"fileExtensions": [
 		".js"
 	],
-
-	// Normal jscsrc
 	"disallowKeywords": [
 		"with"
 	],

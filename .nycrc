@@ -16,6 +16,10 @@
     "include": [
       "src/**/*.js"
     ],
+    "exclude": [
+      "coverage",
+      "test"
+    ],
     "reporter": [
       "lcov",
       "text",

@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+var path = require( "path" );
+var lksFolder = path.join( process.env.HOME, "./.lks" );
+process.env.LKS_DIRECTORY = lksFolder;
+var pkg = require( path.join( __dirname, "../package.json" ) );
+
+var program = require( "commander" );
+
+program
+	.version( pkg.version )
+	.command( "start [container...]", "Start services", { isDefault: true } )
+	.command( "stop [container...]", "Stop a service" )
+	.command( "update [container...]", "Check for newer images re-run the containers" )
+	.command( "logs <container>", "Tail the logs for a container" )
+	.command( "status", "View the currently running containers" )
+	.command( "inspect <container>", "Inspect a running container" )
+	.command( "attach <container>", "Start a shell inside a running container" )
+	.command( "config", "Open the LKS config in your default editor" )
+	.command( "metrics", "Configure metrics services" )
+	.command( "purge", "Remove local images that are no longer in use" )
+	.parse( process.argv );
+

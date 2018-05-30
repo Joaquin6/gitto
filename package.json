@@ -1,33 +1,73 @@
 {
   "name": "gitto",
   "version": "1.0.0",
-  "description": "\"git init\" on steroids",
+  "description": "This project provides a config based development environment for multiple platforms.",
   "main": "index.js",
   "preferGlobal": true,
+  "author": "Joaquin Briceno <joaquinbriceno1@gmail.com>",
+  "homepage": "https://github.com:Joaquin6/gitto#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:Joaquin6/gitto.git"
+  },
+  "bugs": {
+    "url": "https://github.com:Joaquin6/gitto/issues"
+  },
   "bin": {
-    "gitto": "./index.js"
+    "gitto": "./bin/gitto"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "jscs --fix ./src ./test",
+    "lint": "eslint --fix ./src ./test",
+    "cover": "nyc -r text-summary -r html -- npm run test:only",
+    "cover:show": "open \"file://$PWD/coverage/index.html\"",
+    "pretest": "npm run format && npm run lint",
+    "test": "npm run cover",
+    "test:only": "mocha -R spec 'spec/**/*.spec.js'",
+    "test:watch": "npm run test:only -- -w"
   },
   "keywords": [
     "Git",
     "CLI",
     "Node"
   ],
-  "author": "Joaquin Briceno",
   "license": "ISC",
   "dependencies": {
+    "buglog": "^1.0.0",
     "chalk": "^1.1.3",
     "clear": "0.0.1",
     "clui": "^0.3.1",
+    "commander": "2.9.0",
+    "dockerode": "^2.2.9",
     "figlet": "^1.2.0",
+    "flat": "^2.0.0",
+    "fs-extra": "^0.30.0",
     "github": "^6.0.4",
+    "hostile": "1.0.4",
     "inquirer": "^1.2.2",
     "lodash": "^4.16.6",
+    "log-update": "^1.0.2",
     "minimist": "^1.2.0",
     "preferences": "^0.2.1",
+    "request": "^2.74.0",
+    "request-promise": "^4.1.1",
+    "require-all": "^2.0.0",
     "simple-git": "^1.62.0",
-    "touch": "^1.0.0"
+    "table": "^3.7.8",
+    "touch": "^1.0.0",
+    "when": "^3.7.7",
+    "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^2.13.1",
+    "eslint-config": "^2.0.0",
+    "jscs": "^3.0.5",
+    "mocha": "^2.5.3",
+    "nyc": "^6.6.1",
+    "proxyquire": "^1.7.8",
+    "sinon": "^2.4.0",
+    "sinon-chai": "^2.12.0"
   }
 }
